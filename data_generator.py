@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-import helper_laspy as hl
+import helper_las as hl
 
 start_zone_utm_32n = [-1206117.77, 4021309.83]
 end_zone_utm_32n = [1295389.07, 8051813.30]
@@ -28,8 +28,8 @@ def create_point_cloud_square_width(start, width, point_per_axis):
 def create_point_cloud_empty_square_width(start, width, point_per_axis):
     x = np.linspace(start[0], start[0] + width, point_per_axis)
     y = np.linspace(start[1], start[1] + width, point_per_axis)
-    xx = np.hstack((x, [x[0]]*point_per_axis, x, [x[-1]]*point_per_axis))
-    yy = np.hstack(([y[0]]*point_per_axis, y, [y[-1]]*point_per_axis, y))
+    xx = np.hstack((x, [x[0]] * point_per_axis, x, [x[-1]] * point_per_axis))
+    yy = np.hstack(([y[0]] * point_per_axis, y, [y[-1]] * point_per_axis, y))
     return np.vstack((xx.flatten(), yy.flatten(), np.zeros(len(xx.flatten())))).transpose()
 
 

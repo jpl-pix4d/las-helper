@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pathlib
-import helper_laspy
+import helper_las
 import helper_xyz
 
 
@@ -21,13 +21,13 @@ for file in data_path_xyz:
 
     # Write to LAS file
     out_file_path = pathlib.Path(file).stem + ".las"
-    out = helper_laspy.LasHelper(out_file_path, "w")
+    out = helper_las.LasHelper(out_file_path, "w")
     out.set_scaled_points(c.points())
     print("\nPrint points from LAS structure")
     out.print_points()
     out.close()
 
-    f = helper_laspy.LasHelper(out_file_path, "r")
+    f = helper_las.LasHelper(out_file_path, "r")
     print()
     f.print_header_info()
     print()

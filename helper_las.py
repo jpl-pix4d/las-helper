@@ -25,7 +25,7 @@ class LasHelper:
         self.__header = self.__las_file.header
 
     def print_header_info(self):
-        print(f"Header info \"{self.__file_path}\"")
+        print(f'Header info "{self.__file_path}"')
         print(f"LAS format              : {self.__header.version}")
         print(f"Data format ID          : {self.__header.data_format_id}")
         print(f"Point count             : {self.get_point_count()}")
@@ -59,7 +59,10 @@ class LasHelper:
             max(points_scaled[:, 2]),
         ]
 
-        offset = self.__las_file.header.offset = [round((x+y)/2) for x, y in zip(self.__las_file.header.min, self.__las_file.header.max)]
+        offset = self.__las_file.header.offset = [
+            round((x + y) / 2)
+            for x, y in zip(self.__las_file.header.min, self.__las_file.header.max)
+        ]
         scale = self.__las_file.header.scale
 
         self.__las_file.X = [round(x) for x in ((points_scaled[:, 0] - offset[0]) / scale[0])]

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import pathlib
 
-import helper_laspy
+import pathlib
+import helper_las
 import helper_xyz
 
 data_path_xyz = [
@@ -31,7 +31,7 @@ data_path_las = [
 def analyse_las_files():
     for file in data_path_las:
         print(f"#################\n{file}\n")
-        f = helper_laspy.LasHelper(file, "r")
+        f = helper_las.LasHelper(file, "r")
         f.print_header_info()
         f.print_points()
         print()
@@ -48,7 +48,7 @@ data_path_mapper_las = [
 def analyse_mapper_headers():
     for file in data_path_mapper_las:
         print(f"#################\n{pathlib.Path(file).name}\n")
-        f = helper_laspy.LasHelper(file, "r")
+        f = helper_las.LasHelper(file, "r")
         f.print_header_info()
         print()
 
