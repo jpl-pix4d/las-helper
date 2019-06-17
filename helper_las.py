@@ -48,15 +48,15 @@ class LasHelper:
 
     def set_scaled_points(self, points_scaled):
         self.__las_file.header.min = [
-            min(points_scaled[:, 0]),
-            min(points_scaled[:, 1]),
-            min(points_scaled[:, 2]),
+            round(min(points_scaled[:, 0]), 3),
+            round(min(points_scaled[:, 1]), 3),
+            round(min(points_scaled[:, 2]), 3),
         ]
 
         self.__las_file.header.max = [
-            max(points_scaled[:, 0]),
-            max(points_scaled[:, 1]),
-            max(points_scaled[:, 2]),
+            round(max(points_scaled[:, 0]), 3),
+            round(max(points_scaled[:, 1]), 3),
+            round(max(points_scaled[:, 2]), 3),
         ]
 
         offset = self.__las_file.header.offset = [

@@ -67,4 +67,4 @@ def create_point_cloud_line(start, line_length_m, line_width_m):
 # write_data("empty_square_4km.las", create_point_cloud_empty_square_width(start_position, 4000, 10000))
 # write_data("line_5km.las", create_point_cloud_line(start_position, 5000, 500))
 # write_data("line_50km.las", create_point_cloud_line(start_position, 50000, 500))
-write_data("line_500km.las", create_point_cloud_line(start_position, 500000, 100))
+#write_data("line_500km.las", create_point_cloud_line(start_position, 500000, 100))
