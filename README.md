@@ -84,6 +84,10 @@ Scale factors  [x, y, z]: [0.001, 0.001, 0.001]
 >>> f.close()
 ```
 
+**Converting a XYZ file into a LAS file**
+
+Cf. convert_xyz_to_las.py for an example
+
 ## Development
 
 **Formatting of the Python code**
