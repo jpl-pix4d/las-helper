@@ -49,11 +49,11 @@ def create_point_cloud_line(start, line_length_m, line_width_m):
     point_per_x = int(line_length_m / spacing) + 2
     point_per_y = int(line_width_m / spacing) + 2
 
-    x, step = np.linspace(start[0], start[0] + line_length_m, point_per_x, retstep=True)
+    x, step = np.linspace(start[0], start[0] + line_length_m, point_per_x, endpoint=False, retstep=True)
     if step > spacing:
         raise RuntimeError(f"Computed step ({step}m) is bigger than spacing ({spacing}m)")
 
-    y, step = np.linspace(start[1], start[1] + line_width_m, point_per_y, retstep=True)
+    y, step = np.linspace(start[1], start[1] + line_width_m, point_per_y, endpoint=False, retstep=True)
     if step > spacing:
         raise RuntimeError(f"Computed step ({step}m) is bigger than spacing ({spacing}m)")
 
@@ -61,10 +61,11 @@ def create_point_cloud_line(start, line_length_m, line_width_m):
     return np.vstack((xx.flatten(), yy.flatten(), np.zeros(len(xx.flatten())))).transpose()
 
 
-# write_data("square.las", create_point_cloud_square(start_position, end_position, 100))
-# write_data("square_4km_tmp.las", create_point_cloud_square_width(start_position, 4000, 10000))
-# write_data("square_40m.las", create_point_cloud_square_width(start_position, 40, 100))
-# write_data("empty_square_4km.las", create_point_cloud_empty_square_width(start_position, 4000, 10000))
-# write_data("line_5km.las", create_point_cloud_line(start_position, 5000, 500))
-# write_data("line_50km.las", create_point_cloud_line(start_position, 50000, 500))
-# write_data("line_500km.las", create_point_cloud_line(start_position, 500000, 100))
+# write_data("square_sweden.las", create_point_cloud_square(start_position, end_position, 100))
+# write_data("square_4km_sweden.las", create_point_cloud_square_width(start_position, 4000, 10000))
+# write_data("square_40m_sweden.las", create_point_cloud_square_width(start_position, 40, 100))
+# write_data("empty_square_4km_sweden.las", create_point_cloud_empty_square_width(start_position, 4000, 10000))
+# write_data("line_5km_sweden.las", create_point_cloud_line(start_position, 5000, 500))
+# write_data("line_50km_sweden.las", create_point_cloud_line(start_position, 50000, 500))
+write_data("line_500km_sweden.las", create_point_cloud_line(start_position, 500000, 100))
+# write_data("line_100km_sweden.las", create_point_cloud_line(start_position, 100000, 60))
